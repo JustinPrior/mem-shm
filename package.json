@@ -1,0 +1,29 @@
+{
+  "name": "mem-shm",
+  "version": "0.2.2",
+  "description": "/dev/shm/ Memory Cache Store",
+  "author": {
+    "name": "Justin Prior",
+    "email": "justinlukeprior@gmail.com",
+    "url": "https://github.com/JustinPrior"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "mkdirp": "*"
+  },
+  "keywords": [
+    "mem-shm",
+    "shm",
+    "/dev/shm/",
+    "cache",
+    "memory"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JustinPrior/mem-shm"
+  },
+  "bugs": {
+    "url": "https://github.com/JustinPrior/mem-shm/issues",
+    "email": "justinlukeprior@gmail.com"
+  }
+}
