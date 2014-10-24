@@ -19,15 +19,35 @@ Node.JS module which allows you to store, key => value to /dev/shm/
 
 ## Get
 
+####Entire Cache
+
+    var tmp = mem.get();
+    console.log(tmp);
+
+####All Keys for `memoryId`
+
+    var tmp = mem.get(memoryId);
+    console.log(tmp);
+ 
+####Specific Key 
+
     var tmp = mem.get(memoryId,key);
     console.log(tmp);
-  
+
 
 # Methods 
 
 
     var memShm = require('mem-shm');
     var mem = new memShm(`directory`,`file`);
+
+## mem.get()
+
+    Returns  /dev/shm/`directory`/`file` or null if it does not exist
+
+## mem.get(memoryId)
+
+    Returns the [`memoryId`] from /dev/shm/`directory`/`file` or null if it does not exist
 
 ## mem.get(memoryId,key)
 
