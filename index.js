@@ -13,7 +13,9 @@ module.exports = function(folder, file) {
     this.$mem_file = file;
     this.$mem = load(this.$mem_folder, this.$mem_file);
 
-    this.get = function(id, key) {
+    this.get = function(id, key){
+        if(typeof id == 'undefined' && typeof key == 'undefined')return this.$mem;//return all Keys
+        
         assert.ok(!(typeof id == 'undefined' ? true : false), "`id` Not Defined");
         assert.ok(!(typeof key == 'undefined' ? true : false), "`key` Not Defined");
 
