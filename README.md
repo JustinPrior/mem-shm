@@ -9,14 +9,6 @@ Node.JS module which allows you to store, key => value to /dev/shm/
     
     var mem = new memShm("myDirectory","myFile");
 
-## Set
-
-    var memoryId = "test";
-    var key = "test";
-    var val = 1;
-    
-    mem.set(memoryId,key,val);
-
 ## Get
 
 ####Entire Cache
@@ -33,6 +25,14 @@ Node.JS module which allows you to store, key => value to /dev/shm/
 
     var tmp = mem.get(memoryId,key);
     console.log(tmp);
+
+## Set
+
+    var memoryId = "test";
+    var key = "test";
+    var val = 1;
+    
+    mem.set(memoryId,key,val);
 
 
 # Methods 

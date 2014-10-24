@@ -1,7 +1,7 @@
 {
   "name": "mem-shm",
-  "version": "0.2.3",
-  "description": "/dev/shm/ Memory Cache Store",
+  "version": "0.2.4",
+  "description": "Shared Memory Cache Store using /dev/shm/ aka. tmpfs",
   "author": {
     "name": "Justin Prior",
     "email": "justinlukeprior@gmail.com",
@@ -12,6 +12,9 @@
     "mkdirp": "*"
   },
   "keywords": [
+    "tmpfs",
+    "shmfs",
+    "shared",
     "mem-shm",
     "shm",
     "/dev/shm/",
