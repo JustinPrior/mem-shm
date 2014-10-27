@@ -21,10 +21,12 @@ Node.JS module which allows you to store, key => value to /dev/shm/
     var tmp = mem.get(memoryId);
     console.log(tmp);
  
-####Specific Key 
+####Specific Key for `memoryId`
 
     var tmp = mem.get(memoryId,key);
     console.log(tmp);
+
+
 
 ## Set
 
@@ -35,8 +37,28 @@ Node.JS module which allows you to store, key => value to /dev/shm/
     mem.set(memoryId,key,val);
 
 
-# Methods 
 
+## Delete
+
+####`memoryId` and All Keys for `memoryId`
+
+    mem.del(memoryId);
+ 
+####Specific Key  for `memoryId`
+
+   mem.del(memoryId,key);
+
+
+## Clear
+
+####Empties entire mem cache
+
+    mem.clear();
+
+
+
+
+# Methods 
 
     var memShm = require('mem-shm');
     var mem = new memShm(`directory`,`file`);
@@ -57,3 +79,14 @@ Node.JS module which allows you to store, key => value to /dev/shm/
 
     Saves `val` to [`memoryId`][`key`] in /dev/shm/`directory`/`file`
 
+## mem.del(memoryId)
+
+    Deletes the [`memoryId`] from /dev/shm/`directory`/`file` if it exists
+
+## mem.del(memoryId,key)
+
+    Deletes the [`memoryId`][`key`] from /dev/shm/`directory`/`file` if it exists
+
+## mem.clear()
+
+    Empties entire mem cache in /dev/shm/`directory`/`file`

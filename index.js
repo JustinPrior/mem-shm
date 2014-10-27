@@ -44,6 +44,26 @@ module.exports = function(folder, file) {
         this.$mem = save(this.$mem_folder, this.$mem_file, this.$mem);
     };
 
+
+    this.del = function(id, key) {
+        assert.ok(!(typeof id == 'undefined' ? true : false), "`id` Not Defined");//`id` must be specified
+
+        if (!array_key_exists(id, this.$mem)) return null;//check if id exists
+
+        if(typeof key == 'undefined')delete(this.$mem[id]);//delete all keys and id
+        else 
+        {
+            if (!array_key_exists(key, this.$mem[id])) return null;
+            delete(this.$mem[id][key]);
+        }
+
+        this.$mem = save(this.$mem_folder, this.$mem_file, this.$mem);
+    };
+
+    this.clear = function() {
+        this.$mem = save(this.$mem_folder, this.$mem_file, {});
+    };
+
 };
 
 function array_key_exists(key, array) {
