@@ -31,7 +31,7 @@ module.exports = function(folder, file) {
         if (!array_key_exists(id, this.$mem)) return null;
         if (!array_key_exists(key, this.$mem[id])) return null;
         
-        return this.$mem[id][key];//return non Json entry
+        return this.$mem[id][key];
     };
 
     this.set = function(id, key, data) {
@@ -64,6 +64,33 @@ module.exports = function(folder, file) {
 
     this.clear = function() {
         this.$mem = save(this.$mem_folder, this.$mem_file, {});
+    };
+
+    this.count = function(id, key){
+
+        //return entire cache
+        if(typeof id == 'undefined' && typeof key == 'undefined')return Object.keys(this.$mem).length;
+
+        //return all keys for `id`
+        assert.ok(!(typeof id == 'undefined' ? true : false), "`id` Not Defined");//`id` must be specified
+        if(typeof key == 'undefined')
+        {
+            if (!array_key_exists(id, this.$mem)) return 0;
+
+            if(typeof this.$mem[id] == 'object')return Object.keys(this.$mem[id]).length;
+            
+            return this.$mem[id].length;
+        }
+
+        //return all `key` for `id`
+        assert.ok(!(typeof key == 'undefined' ? true : false), "`key` Not Defined");
+        if (!array_key_exists(id, this.$mem)) return 0;
+        if (!array_key_exists(key, this.$mem[id])) return 0;
+        
+        if(typeof this.$mem[id][key] == 'array')return this.$mem[id][key].length;
+        else if(typeof this.$mem[id][key] == 'object')return Object.keys(this.$mem[id][key]).length;
+        
+        return 0;
     };
 
 };

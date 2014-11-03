@@ -55,7 +55,22 @@ Node.JS module which allows you to store, key => value to /dev/shm/
 
     mem.clear();
 
+## Count
 
+####Entire Cache Length
+
+    var leng = mem.count();
+    console.log(leng);
+
+####Length of `memoryId`
+
+    var leng = mem.count(memoryId);
+    console.log(leng);
+ 
+####Length of Specific Key for `memoryId`
+
+    var leng = mem.count(memoryId,key);
+    console.log(leng);
 
 
 # Methods 
@@ -90,3 +105,15 @@ Node.JS module which allows you to store, key => value to /dev/shm/
 ## mem.clear()
 
     Empties entire mem cache in /dev/shm/`directory`/`file`
+
+## mem.count()
+
+    Returns length of entire mem cache in /dev/shm/`directory`/`file`
+
+## mem.count(memoryId)
+
+    Returns length of [`memoryId`] from /dev/shm/`directory`/`file` or 0 if it does not exist
+
+## mem.count(memoryId,key)
+
+    Returns length of [`memoryId`][`key`] from /dev/shm/`directory`/`file` or 0 if it does not exist
