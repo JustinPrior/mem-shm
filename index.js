@@ -30,7 +30,11 @@ module.exports = function(folder, file) {
         assert.ok(!(typeof key == 'undefined' ? true : false), "`key` Not Defined");
         if (!array_key_exists(id, this.$mem)) return null;
         if (!array_key_exists(key, this.$mem[id])) return null;
-        return this.$mem[id][key];
+
+        try{return JSON.parse(this.$mem[id][key]);}//Try return Object
+        catch(e){}//No Object Exists
+        
+        return this.$mem[id][key];//return non Json entry
     };
 
     this.set = function(id, key, data) {
@@ -39,6 +43,8 @@ module.exports = function(folder, file) {
         data = (typeof data === 'undefined' ? null : data);
 
         if (!array_key_exists(id, this.$mem)) this.$mem[id] = {};
+
+        if(typeof data == 'object')data = JSON.stringify(data);//Store as JSON
         this.$mem[id][key] = data;
 
         this.$mem = save(this.$mem_folder, this.$mem_file, this.$mem);

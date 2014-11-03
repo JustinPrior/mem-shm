@@ -26,7 +26,7 @@ Node.JS module which allows you to store, key => value to /dev/shm/
     var tmp = mem.get(memoryId,key);
     console.log(tmp);
 
-
+#####Note: returned `tmp` can be an Object, JSON.parse will be applied
 
 ## Set
 
@@ -36,7 +36,7 @@ Node.JS module which allows you to store, key => value to /dev/shm/
     
     mem.set(memoryId,key,val);
 
-
+#####Note: `val` can be an Object, JSON.stringify will be applied
 
 ## Delete
 
